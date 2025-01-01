@@ -10,8 +10,8 @@ function App() {
 
   const {count} = useAppSelector((state) => state.counter);
 
-  const handleIncrement = () => {
-    dispatch(increment());
+  const handleIncrement = (amount: number) => {
+    dispatch(increment({amount}));
   }
   const handleDecrement = () => {
     dispatch(decrement());
@@ -21,7 +21,8 @@ function App() {
     <>
       <div>
         <h1> Counter with Redux</h1>
-        <button onClick={handleIncrement}>Increment</button>
+        <button onClick={() => handleIncrement(5)}>Increment by 5</button>
+        <button onClick={() => handleIncrement(1)}>Increment</button>
         <div className=''>{count}</div>
         <button onClick={handleDecrement}>Decrement</button>
 
